@@ -52,4 +52,9 @@ public class Co2Austoss implements Serializable {
   public void setAnnualCo2Emissions(double annualCo2Emissions) {
     this.annualCo2Emissions = annualCo2Emissions;
   }
+
+  @Override
+  public String toString() {
+    return "Co2Austoss{" + "country='" + country + '\'' + ", code='" + code + '\'' + ", year='" + year + '\'' + ", annualCo2Emissions=" + annualCo2Emissions + '}';
+  }
 }
