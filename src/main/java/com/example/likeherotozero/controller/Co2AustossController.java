@@ -13,8 +13,7 @@ import java.util.List;
 @ViewScoped
 public class Co2AustossController implements Serializable {
 
-  @Inject
-  public Co2AustossDAO co2AustossDAO;
+  public Co2AustossDAO co2AustossDAO = new Co2AustossDAO();
 
 
   public List<Co2Austoss> getAll() {

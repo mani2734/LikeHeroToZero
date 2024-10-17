@@ -12,11 +12,10 @@ import jakarta.servlet.annotation.*;
 public class HelloServlet extends HttpServlet {
     private String message = "Hello World";
 
-    @Inject
-    private DBSetup dbSetup;
+    private DBSetup dbSetup = new DBSetup();
 
-    @Inject
-    private Co2AustossController controller;
+
+    private Co2AustossController controller = new Co2AustossController();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
