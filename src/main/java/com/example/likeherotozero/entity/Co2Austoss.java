@@ -2,16 +2,21 @@ package com.example.likeherotozero.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 
 import java.io.Serializable;
 
 
+@Entity
+@IdClass(com.example.likeherotozero.entity.IdClass.class)
 public class Co2Austoss implements Serializable {
 
+  @Id
   private String country;
 
   private String code;
 
+  @Id
   private String year;
 
   private double annualCo2Emissions;
