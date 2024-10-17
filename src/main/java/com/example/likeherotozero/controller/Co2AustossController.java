@@ -18,13 +18,12 @@ public class Co2AustossController implements Serializable {
 
 
   public Co2Austoss getNewestEntryForCountry(String country) {
-
-    return null;
+    return this.co2AustossDAO.getNewestEntryForCountry(country);
   }
 
   public boolean addEntry(Co2Austoss co2Austoss) {
     try {
-      //save
+      this.co2AustossDAO.persist(co2Austoss);
     } catch(Exception e) {
       System.out.println("Couldn't add entry");
       e.printStackTrace();
