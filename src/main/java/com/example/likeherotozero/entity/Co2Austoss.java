@@ -17,7 +17,7 @@ public class Co2Austoss implements Serializable {
   private String code;
 
   @Id
-  private String year;
+  private String year_;
 
   private double annualCo2Emissions;
 
@@ -37,12 +37,12 @@ public class Co2Austoss implements Serializable {
     this.code = code;
   }
 
-  public String getYear() {
-    return year;
+  public String getYear_() {
+    return year_;
   }
 
-  public void setYear(String year) {
-    this.year = year;
+  public void setYear_(String year_) {
+    this.year_ = year_;
   }
 
   public double getAnnualCo2Emissions() {
@@ -55,6 +55,6 @@ public class Co2Austoss implements Serializable {
 
   @Override
   public String toString() {
-    return "Co2Austoss{" + "country='" + country + '\'' + ", code='" + code + '\'' + ", year='" + year + '\'' + ", annualCo2Emissions=" + annualCo2Emissions + '}';
+    return "Co2Austoss{" + "country='" + country + '\'' + ", code='" + code + '\'' + ", year_='" + year_ + '\'' + ", annualCo2Emissions=" + annualCo2Emissions + '}';
   }
 }
