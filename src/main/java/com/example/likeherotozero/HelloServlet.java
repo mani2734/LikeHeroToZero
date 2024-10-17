@@ -1,20 +1,23 @@
 package com.example.likeherotozero;
 
 import java.io.*;
+
+import jakarta.inject.Inject;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    private String message;
+    private String message = "Hello World";
+    private static DBSetup dbSetup = new DBSetup();
 
-    public void init() {
-        message = "Hello World!";
+    public static void main(String[] args) {
+
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-
+        dbSetup.importData();
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
