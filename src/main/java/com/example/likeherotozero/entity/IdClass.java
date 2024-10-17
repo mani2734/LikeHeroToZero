@@ -6,11 +6,11 @@ import java.util.Objects;
 public class IdClass implements Serializable {
 
   private String country;
-  private String year;
+  private String year_;
 
-  public IdClass(String country, String year) {
+  public IdClass(String country, String year_) {
     this.country = country;
-    this.year = year;
+    this.year_ = year_;
   }
 
   @Override
@@ -21,11 +21,11 @@ public class IdClass implements Serializable {
     if (!(o instanceof IdClass idClass)) {
       return false;
     }
-    return Objects.equals(country, idClass.country) && Objects.equals(year, idClass.year);
+    return Objects.equals(country, idClass.country) && Objects.equals(year_, idClass.year_);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(country, year);
+    return Objects.hash(country, year_);
   }
 }
