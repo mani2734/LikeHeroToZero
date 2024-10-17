@@ -25,6 +25,9 @@ public class HelloServlet extends HttpServlet {
         for(Co2Austoss co2 : this.controller.getAll()) {
             System.out.println(co2);
         }
+
+        System.out.println(this.controller.getNewestEntryForCountry("Austria"));
+
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
