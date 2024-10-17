@@ -7,6 +7,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Named
 @ViewScoped
@@ -16,6 +17,9 @@ public class Co2AustossController implements Serializable {
   public Co2AustossDAO co2AustossDAO;
 
 
+  public List<Co2Austoss> getAll() {
+    return this.co2AustossDAO.getAll();
+  }
 
   public Co2Austoss getNewestEntryForCountry(String country) {
     return this.co2AustossDAO.getNewestEntryForCountry(country);

@@ -33,6 +33,16 @@ public class Co2AustossDAO {
     this.entityManager.persist(co2);
   }
 
+  public List<Co2Austoss> getAll() {
+    CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+    CriteriaQuery<Co2Austoss> query = cb.createQuery(Co2Austoss.class);
+    Root<Co2Austoss> co2AustossRoot = query.from(Co2Austoss.class);
+
+    query.select(co2AustossRoot);
+
+    return entityManager.createQuery(query).getResultList();
+  }
+
   public Co2Austoss getNewestEntryForCountry(String country) {
     CriteriaQuery<Co2Austoss> cq = this.criteriaBuilder.createQuery(Co2Austoss.class);
     Root<Co2Austoss> co2AustossRoot = cq.from(Co2Austoss.class);
