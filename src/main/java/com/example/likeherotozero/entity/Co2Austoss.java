@@ -7,7 +7,7 @@ import jakarta.persistence.IdClass;
 import java.io.Serializable;
 
 
-@Entity
+@Entity(name = "emissions")
 @IdClass(com.example.likeherotozero.entity.IdClass.class)
 public class Co2Austoss implements Serializable {
 
@@ -19,7 +19,7 @@ public class Co2Austoss implements Serializable {
   @Id
   private String year_;
 
-  private double annualCo2Emissions;
+  private double co2_emissions;
 
   public String getCountry() {
     return country;
@@ -45,16 +45,16 @@ public class Co2Austoss implements Serializable {
     this.year_ = year_;
   }
 
-  public double getAnnualCo2Emissions() {
-    return annualCo2Emissions;
+  public double getco2_emissions() {
+    return co2_emissions;
   }
 
-  public void setAnnualCo2Emissions(double annualCo2Emissions) {
-    this.annualCo2Emissions = annualCo2Emissions;
+  public void setco2_emissions(double co2_emissions) {
+    this.co2_emissions = co2_emissions;
   }
 
   @Override
   public String toString() {
-    return "Co2Austoss{" + "country='" + country + '\'' + ", code='" + code + '\'' + ", year_='" + year_ + '\'' + ", annualCo2Emissions=" + annualCo2Emissions + '}';
+    return "Co2Austoss{" + "country='" + country + '\'' + ", code='" + code + '\'' + ", year_='" + year_ + '\'' + ", co2_emissions=" + co2_emissions + '}';
   }
 }
