@@ -1,12 +1,14 @@
 package com.example.likeherotozero;
 
-import java.io.*;
-
 import com.example.likeherotozero.controller.Co2AustossController;
 import com.example.likeherotozero.entity.Co2Austoss;
-import jakarta.inject.Inject;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
@@ -20,7 +22,6 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         this.dbSetup.importData();
-        // Hello
 
         for(Co2Austoss co2 : this.controller.getAll()) {
             System.out.println(co2);
