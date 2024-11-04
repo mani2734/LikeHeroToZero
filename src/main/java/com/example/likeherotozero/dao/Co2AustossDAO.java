@@ -2,6 +2,7 @@ package com.example.likeherotozero.dao;
 
 import com.example.likeherotozero.DBSetup;
 import com.example.likeherotozero.entity.Co2Austoss;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -12,10 +13,12 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Named
-@ViewScoped
+@ApplicationScoped
 public class Co2AustossDAO implements Serializable {
 
   private DBSetup dbSetup = new DBSetup();
@@ -35,6 +38,17 @@ public class Co2AustossDAO implements Serializable {
   }
   public void persist(Co2Austoss co2) {
     this.entityManager.persist(co2);
+  }
+
+  public Set<String> getCountries() {
+    Set<String> countries = new HashSet<>();
+    List<Co2Austoss> lst = getAll();
+    if(lst != null && !lst.isEmpty()) {
+      lst.forEach(x -> countries.add(x.getCountry()));
+    }
+
+    return countries;
+
   }
 
   public List<Co2Austoss> getAll() {

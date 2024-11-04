@@ -10,20 +10,23 @@
 </h:head>
 <h:body>
     <h1>Like Hero To Zero</h1>
+
+    <div>
+        <p:selectOneMenu id="country" value="#{co2AustossController.getCountries}">
+            <f:selectItem itemLabel="Choose country" itemValue=""></f:selectItem>
+        </p:selectOneMenu>
+    </div>
     <p:dataTable var="emissions" value="#{co2AustossController.lst}">
-        <p:column sortBy="#{emissions.country}" headerText="Country">
+        <p:column headerText="Country">
             #{emissions.country}
         </p:column>
-        <p:column>
-            <f:facet name="header">Code</f:facet>
+        <p:column headerText="Code">
             #{emissions.code}
         </p:column>
-        <p:column>
-            <f:facet name="header">Year</f:facet>
+        <p:column headerText="Year">
             #{emissions.year_}
         </p:column>
-        <p:column>
-            <f:facet name="header">Co2Emissions</f:facet>
+        <p:column headerText="Co2Emissions">
             #{emissions.co2_emissions}
         </p:column>
     </p:dataTable>
