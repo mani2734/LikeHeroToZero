@@ -2,8 +2,8 @@ package com.example.likeherotozero;
 
 import com.example.likeherotozero.controller.Co2AustossController;
 import com.example.likeherotozero.entity.Co2Austoss;
+import jakarta.annotation.ManagedBean;
 import jakarta.annotation.PostConstruct;
-import jakarta.faces.context.FacesContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -37,12 +37,11 @@ public class StartUpBean implements Serializable {
         out.println("</body></html>");
     }
 
-    @PostConstruct
+   // @PostConstruct
     public void init() {
         try {
             this.dbSetup.importData();
-            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

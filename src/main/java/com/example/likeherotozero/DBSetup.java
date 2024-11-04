@@ -1,5 +1,6 @@
 package com.example.likeherotozero;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
@@ -15,6 +16,7 @@ public class DBSetup implements Serializable {
   private static final String csvFilePath = "C:\\Local\\developer-workspace\\LIkeHeroToZero\\src\\main\\resources\\annual-co2-emissions-per-country.csv";
 
 
+ // @PostConstruct
   public void importData() {
     try {
       Class.forName("org.h2.Driver");

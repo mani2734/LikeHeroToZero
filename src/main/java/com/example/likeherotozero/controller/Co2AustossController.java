@@ -2,6 +2,7 @@ package com.example.likeherotozero.controller;
 
 import com.example.likeherotozero.dao.Co2AustossDAO;
 import com.example.likeherotozero.entity.Co2Austoss;
+import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -13,7 +14,15 @@ import java.util.List;
 @ViewScoped
 public class Co2AustossController implements Serializable {
 
+
   private Co2AustossDAO co2AustossDAO = new Co2AustossDAO();
+
+  private List<Co2Austoss> lst;
+
+  @PostConstruct
+  private void initializeLst() {
+    this.lst = getAll();
+  }
 
 
   public List<Co2Austoss> getAll() {
@@ -35,4 +44,11 @@ public class Co2AustossController implements Serializable {
     return true;
   }
 
+  public List<Co2Austoss> getLst() {
+    return lst;
+  }
+
+  public void setLst(List<Co2Austoss> lst) {
+    this.lst = lst;
+  }
 }

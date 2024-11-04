@@ -9,10 +9,22 @@
     <title>Like Hero to Zero</title>
 </h:head>
 <h:body>
-    <h:dataTable var="Co2Austoss" value="Co2AustossController.getAll()">
+    <h:dataTable var="emissions" value="#{co2AustossController.lst}">
         <h:column>
             <f:facet name="header">Country</f:facet>
-            <h:outputText value="#{Co2Austoss.country}"/>
+            #{emissions.country}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Code</f:facet>
+            #{emissions.code}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Year</f:facet>
+            #{emissions.year_}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Co2Emissions</f:facet>
+            #{emissions.co2_emissions}
         </h:column>
 
     </h:dataTable>

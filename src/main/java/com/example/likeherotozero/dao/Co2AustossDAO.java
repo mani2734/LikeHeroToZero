@@ -1,7 +1,9 @@
 package com.example.likeherotozero.dao;
 
+import com.example.likeherotozero.DBSetup;
 import com.example.likeherotozero.entity.Co2Austoss;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
@@ -16,11 +18,14 @@ import java.util.List;
 @ViewScoped
 public class Co2AustossDAO implements Serializable {
 
+  private DBSetup dbSetup = new DBSetup();
+
   EntityManager entityManager;
 
   CriteriaBuilder criteriaBuilder;
 
   public Co2AustossDAO() {
+    this.dbSetup.importData();
     this.entityManager = Persistence.createEntityManagerFactory("co2austoss").createEntityManager();
     this.criteriaBuilder = this.entityManager.getCriteriaBuilder();
   }
