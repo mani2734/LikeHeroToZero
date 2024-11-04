@@ -45,7 +45,7 @@ public class Co2AustossController implements Serializable {
   }
 
   public void getNewestEntryForCountry(String country) {
-   // this.newestEntry = this.co2AustossDAO.getNewestEntryForCountry(country);
+    this.newestEntry = this.co2AustossDAO.getNewestEntryForCountry(country);
   }
 
   public boolean addEntry(Co2Austoss co2Austoss) {
@@ -82,14 +82,9 @@ public class Co2AustossController implements Serializable {
   }
 
   public void selectionChanged(AjaxBehaviorEvent event) {
-    // Only process the event if the selected value has changed
-    UIComponent component = event.getComponent();
-
     SelectOneMenu menu = (SelectOneMenu) event.getSource();
-    Co2Austoss value2 = (Co2Austoss) menu.getSubmittedValue();
-    // Get the selected value from the component
-       Co2Austoss value = (Co2Austoss) component.getAttributes().get("value");
-       System.out.println(value);
-      System.out.println("Country changed to: " + newestEntry);
+    String value2 = (String) menu.getSubmittedValue();
+    this.getNewestEntryForCountry(value2);
+    System.out.println("Country changed to: " + newestEntry);
   }
 }
