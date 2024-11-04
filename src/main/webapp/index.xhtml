@@ -12,23 +12,29 @@
     <h1>Like Hero To Zero</h1>
 
     <div>
-        <p:selectOneMenu id="country" value="#{co2AustossController.getCountries}">
-            <f:selectItem itemLabel="Choose country" itemValue=""></f:selectItem>
+        <p:selectOneMenu id="country">
+            <f:selectItems value="#{co2AustossController.getCountries()}" var="co2Austoss"/>
+            <p:ajax event="change" listener="#{co2AustossController.getNewestEntryForCountry(co2Austoss)}"/>
+            <p:ajax event="change" update="output"/>
         </p:selectOneMenu>
+       <!-- <p:button icon="pi pi-search" styleClass="rounded-button ui-button-info ui-button-flat" onclick="#{co2AustossController.getNewestEntryForCountry(co2Austoss.country)}"/> -->
+        <p:outputLabel id="output" value="Co2 Emissions: #{co2AustossController.newestEntry.co2_emissions}"/>
     </div>
-    <p:dataTable var="emissions" value="#{co2AustossController.lst}">
-        <p:column headerText="Country">
-            #{emissions.country}
-        </p:column>
-        <p:column headerText="Code">
-            #{emissions.code}
-        </p:column>
-        <p:column headerText="Year">
-            #{emissions.year_}
-        </p:column>
-        <p:column headerText="Co2Emissions">
-            #{emissions.co2_emissions}
-        </p:column>
-    </p:dataTable>
+    <div>
+        <p:dataTable var="emissions" value="#{co2AustossController.lst}">
+            <p:column headerText="Country">
+                #{emissions.country}
+            </p:column>
+            <p:column headerText="Code">
+                #{emissions.code}
+            </p:column>
+            <p:column headerText="Year">
+                #{emissions.year_}
+            </p:column>
+            <p:column headerText="Co2Emissions">
+                #{emissions.co2_emissions}
+            </p:column>
+        </p:dataTable>
+    </div>
 </h:body>
 </html>

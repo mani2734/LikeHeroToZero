@@ -27,6 +27,10 @@ public class Co2AustossController implements Serializable {
     }
   }
 
+  private Co2Austoss newestEntry;
+
+
+
   public Set<String> getCountries() {
     return this.co2AustossDAO.getCountries();
   }
@@ -35,8 +39,8 @@ public class Co2AustossController implements Serializable {
     return this.co2AustossDAO.getAll();
   }
 
-  public Co2Austoss getNewestEntryForCountry(String country) {
-    return this.co2AustossDAO.getNewestEntryForCountry(country);
+  public void getNewestEntryForCountry(String country) {
+    this.newestEntry = this.co2AustossDAO.getNewestEntryForCountry(country);
   }
 
   public boolean addEntry(Co2Austoss co2Austoss) {
@@ -56,5 +60,13 @@ public class Co2AustossController implements Serializable {
 
   public void setLst(List<Co2Austoss> lst) {
     this.lst = lst;
+  }
+
+  public Co2Austoss getNewestEntry() {
+    return newestEntry;
+  }
+
+  public void setNewestEntry(Co2Austoss newestEntry) {
+    this.newestEntry = newestEntry;
   }
 }
