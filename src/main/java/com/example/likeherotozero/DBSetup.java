@@ -1,16 +1,16 @@
 package com.example.likeherotozero;
 
-
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
 @Named
-@ApplicationScoped
-public class DBSetup {
+@ViewScoped
+public class DBSetup implements Serializable {
 
   private static final String csvFilePath = "C:\\Local\\developer-workspace\\LIkeHeroToZero\\src\\main\\resources\\annual-co2-emissions-per-country.csv";
 

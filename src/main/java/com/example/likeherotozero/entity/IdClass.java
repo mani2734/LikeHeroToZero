@@ -25,10 +25,10 @@ public class IdClass implements Serializable {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof IdClass idClass)) {
-      return false;
+    if (o instanceof IdClass) {
+      return Objects.equals(((IdClass) o).country, this.country) && Objects.equals(((IdClass) o).year_, this.year_);
     }
-    return Objects.equals(country, idClass.country) && Objects.equals(year_, idClass.year_);
+    return false;
   }
 
   @Override

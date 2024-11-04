@@ -1,21 +1,20 @@
 package com.example.likeherotozero.dao;
 
 import com.example.likeherotozero.entity.Co2Austoss;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.OrderBy;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import org.h2.result.SortOrder;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Named
-@ApplicationScoped
-public class Co2AustossDAO {
+@ViewScoped
+public class Co2AustossDAO implements Serializable {
 
   EntityManager entityManager;
 
