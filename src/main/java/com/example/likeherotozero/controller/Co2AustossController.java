@@ -4,8 +4,6 @@ import com.example.likeherotozero.dao.Co2AustossDAO;
 import com.example.likeherotozero.entity.Co2Austoss;
 import jakarta.annotation.ManagedBean;
 import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.faces.component.UIComponent;
 import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;

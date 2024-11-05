@@ -17,11 +17,11 @@ public class CurrentUser implements Serializable {
     this.guest = false;
   }
 
-  boolean isAdmin() {
+  public boolean isAdmin() {
     return this.admin;
   }
 
-  boolean isGuest() {
+  public boolean isGuest() {
     return this.guest;
   }
 
