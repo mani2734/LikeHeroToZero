@@ -19,6 +19,25 @@
        <!-- <p:button icon="pi pi-search" styleClass="rounded-button ui-button-info ui-button-flat" onclick="#{co2AustossController.getNewestEntryForCountry(co2Austoss.country)}"/> -->
         <p:outputLabel id="output" value="Co2 Emissions: #{co2AustossController.newestEntry.getco2_emissions()}"/>
     </h:form>
+    <h:form id="dialog">
+        <h:commandButton action="#{loginController.checkLogin()}" value="Neuer Eintrag" update=":dialog:dialogContent"
+                         oncomplete="PF('myDialog').show();"/>
+        <p:dialog header="Dynamic Content Dialog" widgetVar="myDialog" modal="true" resizable="false">
+            <!-- Update content based on boolean value -->
+            <h:panelGroup id="dialogContent">
+                <p:outputPanel rendered="#{loginController.isAdmin()}">
+                    <h:inputText id="countryInput" value="#{co2AustossController.newEntry.country}" size="40" required="true"/>
+                    <h:inputText id="codeInput" value="#{co2AustossController.newEntry.code}" size="40" required="false"/>
+                    <h:inputText id="yearInput" value="#{co2AustossController.newEntry.year_}" size="40" required="true"/>
+                    <h:inputText id="co2Input" value="#{co2AustossController.newEntry.co2_emissions}" size="40" required="true"/>
+                    <h:commandButton action="#{co2AustossController.addEntry(co2AustossController.newEntry)}" value="Login"/>
+                </p:outputPanel>
+                <p:outputPanel rendered="#{!loginController.isAdmin()}">
+                    <h:outputText value="Kein Admin" />
+                </p:outputPanel>
+            </h:panelGroup>
+        </p:dialog>
+    </h:form>
     <div>
         <p:dataTable var="emissions" value="#{co2AustossController.lst}">
             <p:column headerText="Country">

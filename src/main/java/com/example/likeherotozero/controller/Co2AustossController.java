@@ -4,6 +4,9 @@ import com.example.likeherotozero.dao.Co2AustossDAO;
 import com.example.likeherotozero.entity.Co2Austoss;
 import jakarta.annotation.ManagedBean;
 import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
@@ -14,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 @Named
-@ViewScoped
+@SessionScoped
 @ManagedBean
 public class Co2AustossController implements Serializable {
 
@@ -32,7 +35,15 @@ public class Co2AustossController implements Serializable {
 
   private Co2Austoss newestEntry;
 
+  private Co2Austoss newEntry = new Co2Austoss();
 
+  public Co2Austoss getNewEntry() {
+    return newEntry;
+  }
+
+  public void setNewEntry(Co2Austoss newEntry) {
+    this.newEntry = newEntry;
+  }
 
   public Set<String> getCountries() {
     return this.co2AustossDAO.getCountries();
@@ -54,6 +65,10 @@ public class Co2AustossController implements Serializable {
       e.printStackTrace();
       return false;
     }
+
+    this.newestEntry = null;
+    FacesContext.getCurrentInstance().addMessage(null,
+                                                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", "Eintrag gespeichert"));
     return true;
   }
 

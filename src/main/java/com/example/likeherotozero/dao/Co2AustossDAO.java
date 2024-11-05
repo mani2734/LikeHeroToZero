@@ -3,24 +3,18 @@ package com.example.likeherotozero.dao;
 import com.example.likeherotozero.DBSetup;
 import com.example.likeherotozero.entity.Co2Austoss;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.faces.view.ViewScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import jakarta.persistence.criteria.Subquery;
 
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.CountDownLatch;
 
 @Named
 @ApplicationScoped

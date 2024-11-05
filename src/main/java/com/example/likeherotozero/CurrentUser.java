@@ -12,7 +12,7 @@ public class CurrentUser implements Serializable {
 
   private boolean guest;
 
-  void reset() {
+  public void reset() {
     this.admin = false;
     this.guest = false;
   }
