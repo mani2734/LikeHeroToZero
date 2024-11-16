@@ -67,6 +67,8 @@ public class Co2AustossController implements Serializable {
     }
 
     this.newestEntry = null;
+    this.newEntry = null;
+    this.lst = getAll();
     FacesContext.getCurrentInstance().addMessage(null,
                                                  new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", "Eintrag gespeichert"));
     return true;

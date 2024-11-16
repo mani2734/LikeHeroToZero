@@ -20,17 +20,21 @@
         <p:outputLabel id="output" value="Co2 Emissions: #{co2AustossController.newestEntry.getco2_emissions()}"/>
     </h:form>
     <h:form id="dialog">
-        <p:commandButton action="#{loginController.checkLogin()}" value="Neuer Eintrag" update=":dialog:dialogContent" process="@this"
+        <p:commandButton style="background: #4caf50; color: white" action="#{loginController.checkLogin()}" value="Neuer Eintrag" update=":dialog:dialogContent" process="@this"
                          oncomplete="PF('myDialog').show();"/>
-        <p:dialog header="Dynamic Content Dialog" widgetVar="myDialog" modal="true" resizable="false">
+        <p:dialog header="Neuer Eintrag" widgetVar="myDialog" modal="true" resizable="false">
             <!-- Update content based on boolean value -->
             <h:panelGroup id="dialogContent">
                 <p:outputPanel rendered="#{loginController.isAdmin()}">
-                    <p:inputText id="countryInput" value="#{co2AustossController.newEntry.country}" size="40" required="true"/>
-                    <p:inputText id="codeInput" value="#{co2AustossController.newEntry.code}" size="40" required="false"/>
-                    <p:inputText id="yearInput" value="#{co2AustossController.newEntry.year_}" size="40" required="true"/>
-                    <p:inputText id="co2Input" value="#{co2AustossController.newEntry.co2_emissions}" size="40" required="true"/>
-                    <p:commandButton action="#{co2AustossController.addEntry(co2AustossController.newEntry)}" value="Speichern" oncomplete="PF('myDialog').hide();"/>
+                    <p:inputText style="padding: 10px; border: 2px solid #4caf50; border-radius: 5px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: border-color 0.3s, box-shadow 0.3s"
+                            id="countryInput" placeholder="Country" value="#{co2AustossController.newEntry.country}" size="40" required="true" label="Country"/>
+                    <p:inputText style="padding: 10px; border: 2px solid #4caf50; border-radius: 5px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: border-color 0.3s, box-shadow 0.3s"
+                                 id="codeInput" placeholder="Code" value="#{co2AustossController.newEntry.code}" size="40" required="false" label="Code"/>
+                    <p:inputText style="padding: 10px; border: 2px solid #4caf50; border-radius: 5px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: border-color 0.3s, box-shadow 0.3s"
+                                 id="yearInput" placeholder="Year" value="#{co2AustossController.newEntry.year_}" size="40" required="true" label="Year"/>
+                    <p:inputText style="padding: 10px; border: 2px solid #4caf50; border-radius: 5px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: border-color 0.3s, box-shadow 0.3s"
+                                 id="co2Input" placeholder="Co2" value="#{co2AustossController.newEntry.co2_emissions}" size="40" required="true" label="Co2"/>
+                    <p:commandButton style="background: #4caf50; color: white" action="#{co2AustossController.addEntry(co2AustossController.newEntry)}" value="Speichern" oncomplete="PF('myDialog').hide();"/>
                 </p:outputPanel>
                 <p:outputPanel rendered="#{!loginController.isAdmin()}">
                     <h:outputText value="Kein Admin" />

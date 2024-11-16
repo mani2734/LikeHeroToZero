@@ -8,26 +8,27 @@
 </head>
 <body>
 <h:form>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; width: -webkit-fill-available;">
+        <p>
+            <p:inputText id="user" value="#{loginController.tmpUser}" size="40" required="true" placeholder="Benutzername"
+                         style="padding: 10px; border: 2px solid #4caf50; border-radius: 5px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: border-color 0.3s, box-shadow 0.3s">
+                <f:event type="postValidate" listener="#{loginController.postValidateUser}"/>
+            </p:inputText>
+            <h:message for="user" styleClass="error"/>
+        </p>
 
-    <p>
-        <h:outputLabel value="Benutzername:" for="user"/>
-        <h:inputText id="user" value="#{loginController.tmpUser}" size="40" required="true">
-            <f:event type="postValidate" listener="#{loginController.postValidateUser}"/>
-        </h:inputText>
-        <h:message for="user" styleClass="error"/>
-    </p>
+        <p>
 
-    <p>
-
-        <h:outputLabel value="Passwort: " for="password"/>
-        <h:inputSecret id="password" value="#{loginController.tmpPassword}" size="40" required="true"
-                       validator="#{loginController.validateLogin}"/>
-        <h:message for="password" styleClass="error"/>
-    </p>
+            <p:password id="password" value="#{loginController.tmpPassword}" size="40" required="true" placeholder="Passwort"
+                        style="padding: 10px; border: 2px solid #4caf50; border-radius: 5px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: border-color 0.3s, box-shadow 0.3s"
+                           validator="#{loginController.validateLogin}"/>
+            <h:message for="password" styleClass="error"/>
+        </p>
 
 
-  <!--  <p class="error"><h:outputText value="#{loginController.failureMessage}"/></p> -->
-    <h:commandButton action="#{loginController.login}" value="Login"/>
+      <!--  <p class="error"><h:outputText value="#{loginController.failureMessage}"/></p> -->
+        <p:commandButton action="#{loginController.login}" value="Login" style="background: #4caf50; color: white"/>
+    </div>
 </h:form>
 
 </body>
