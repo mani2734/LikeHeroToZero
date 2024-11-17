@@ -7,7 +7,6 @@ import java.util.Objects;
 
 @Embeddable
 public class IdClass implements Serializable {
-
   private String country;
   private String year_;
 

@@ -20,8 +20,6 @@ import java.util.Set;
 @SessionScoped
 @ManagedBean
 public class Co2AustossController implements Serializable {
-
-
   private Co2AustossDAO co2AustossDAO = new Co2AustossDAO();
 
   private List<Co2Austoss> lst;
